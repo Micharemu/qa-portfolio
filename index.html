@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>QA Portfolio | Oladiran Tobi Michael</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Oladiran Tobi Michael – Quality Assurance Tester specializing in manual and automation testing (Cypress, Playwright, Postman, API, SQL)."
+  />
+  <style>
+    :root {
+      --bg: #060714;
+      --bg-alt: #0f101f;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --card-bg: #111827;
+      --border: #1f2937;
+      --pill-bg: #111827;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --radius-pill: 999px;
+      --transition: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 45%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 20%, #60a5fa, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 18px;
+      color: #eff6ff;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-size: 13px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .logo-text span:last-child {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(to right, #60a5fa, #a855f7);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 28px;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 4px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      margin-bottom: 14px;
+    }
+
+    .badge-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--radius-pill);
+      background:
+        radial-gradient(circle at 30% 20%, #bbf7d0, #22c55e)
+        padding-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #052e16;
+      font-size: 14px;
+      box-shadow: 0 0 25px rgba(34, 197, 94, 0.7);
+    }
+
+    .badge span {
+      font-size: 12px;
+      color: #e5e7eb;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(90deg, #60a5fa, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 8px 16px;
+      font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, #2563eb, #7c3aed);
+      color: white;
+      box-shadow: 0 14px 32px rgba(37, 99, 235, 0.55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.75);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      border-color: rgba(148, 163, 184, 0.3);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(129, 140, 248, 0.9);
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta div {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1d283a 0, #020617 60%);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 18px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .stat {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      padding: 10px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .stat span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .stat strong {
+      font-size: 16px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .pill {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      color: #e5e7eb;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      right: -24px;
+      bottom: -20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+    }
+
+    .hero-orbit-inner {
+      width: 74px;
+      height: 74px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 10%, #a855f7, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      text-align: center;
+      color: #eff6ff;
+      padding: 6px;
+      box-shadow: 0 16px 35px rgba(79, 70, 229, 0.8);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+    }
+
+    .section-header span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.8);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .card h4 {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 12px;
+      color: var(--muted);
+      padding-left: 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 3px;
+    }
+
+    .card ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #60a5fa;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      color: #e5e7eb;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+    }
+
+    .skill-block h3 {
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .skill-block p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .timeline {
+      border-left: 1px solid rgba(55, 65, 81, 0.9);
+      margin-left: 6px;
+      padding-left: 14px;
+    }
+
+    .timeline-item {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 4px;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #60a5fa;
+      box-shadow: 0 0 0 5px rgba(37, 99, 235, 0.25);
+    }
+
+    .timeline-item h3 {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .timeline-item span {
+      display: block;
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    footer {
+      margin-top: 26px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    footer a {
+      color: #93c5fd;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-circle">OT</div>
+        <div class="logo-text">
+          <span>QA Portfolio</span>
+          <span>Oladiran Tobi Michael</span>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="about">
+      <div>
+        <div class="badge">
+          <div class="badge-dot">QA</div>
+          <span>Manual & Automation • Web • API • CI</span>
+        </div>
+        <h1 class="hero-title">
+          Quality Assurance Tester focused on
+          <span>reliable, well-tested software.</span>
+        </h1>
+        <p class="hero-subtitle">
+          I’m <strong>Oladiran Tobi Michael</strong>, a QA Engineer with 3+ years of
+          experience testing web and API-based applications using
+          <strong>Cypress, Playwright, Postman, SQL, and Jira</strong>. I design
+          meaningful tests, automate critical paths, and collaborate closely with
+          development teams to improve product quality and user experience.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            View QA Projects →
+          </a>
+          <a href="#contact" class="btn btn-ghost">
+            Contact Me
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div>
+            <span>📍</span> Lagos, Nigeria – Open to Remote (US/UK/Canada/EU)
+          </div>
+          <div>
+            <span>🧪</span> Manual, Automation, API, CI/CD
+          </div>
+          <div>
+            <span>🔗</span>
+            <a href="https://www.linkedin.com/in/oladiran-tobi-michael" target="_blank" rel="noopener">
+              LinkedIn Profile
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Snapshot</h3>
+        <p>
+          Recent work spans freelance & academic projects, with a strong focus on
+          regression suites, API testing, and CI-based automation.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat">
+            <span>Test Cases Executed</span>
+            <strong>300+</strong>
+          </div>
+          <div class="stat">
+            <span>Defects Logged</span>
+            <strong>200+</strong>
+          </div>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Cypress</span>
+          <span class="pill">Playwright</span>
+          <span class="pill">Postman & Newman</span>
+          <span class="pill">SQL Validation</span>
+          <span class="pill">GitHub Actions</span>
+          <span class="pill">Jira / TestRail</span>
+        </div>
+
+        <p style="font-size: 11px; color: var(--muted); margin-bottom: 0;">
+          I enjoy turning ambiguous requirements into clear, testable scenarios, and
+          using automation where it provides the most value.
+        </p>
+
+        <div class="hero-orbit">
+          <div class="hero-orbit-inner">
+            40% regression time saved
+            <br />via Cypress automation
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <div class="section-header">
+        <h2>Skills & Tooling</h2>
+        <span>Manual + Automation • Web • API • CI</span>
+      </div>
+      <div class="card">
+        <div class="skills-grid">
+          <div class="skill-block">
+            <h3>Testing</h3>
+            <p>Manual, Functional, Regression, UI, API (REST), Exploratory Testing, Test Design, STLC & SDLC.</p>
+          </div>
+          <div class="skill-block">
+            <h3>Automation</h3>
+            <p>Cypress, Playwright, JavaScript (Mocha/Chai), Postman + Newman, basic Jenkins, GitHub Actions.</p>
+          </div>
+          <div class="skill-block">
+            <h3>QA Tools</h3>
+            <p>Jira, TestRail, Bugzilla, Git & GitHub, Chrome DevTools, SQL, JSON.</p>
+          </div>
+          <div class="skill-block">
+            <h3>Soft Skills</h3>
+            <p>Clear communication, documentation, remote collaboration, problem solving, Agile/Scrum participation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Projects -->
+        <section id="projects">
+          <div class="section-header">
+            <h2>Highlighted QA Projects</h2>
+            <span>Hands-on work samples you can discuss in interviews</span>
+          </div>
+    
+          <div class="grid-2">
+            <!-- Project 1 -->
+            <article class="card">
+              <h3>E-Commerce Web Application QA</h3>
+              <h4>Manual + Automation (Cypress, Playwright, Postman)</h4>
+              <p>
+                End-to-end testing of an e-commerce web app, focusing on core flows like
+                login, product browsing, cart, and checkout.
+              </p>
+              <ul>
+                <li>Designed and executed <strong>120+ test cases</strong> covering UI, validation, and user flows.</li>
+                <li>Automated core user journeys using <strong>Cypress/Playwright</strong> with reusable page objects.</li>
+                <li>Performed API testing (auth, product, order endpoints) using <strong>Postman</strong>.</li>
+                <li>Documented defects in Jira with clear steps, expected vs actual results, and severity.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Cypress</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">Postman</span>
+                <span class="tag">Jira</span>
+                <span class="tag">Regression</span>
+              </div>
+              <p style="margin-top:6px; font-size:12px;">
+                🔗 <a href="https://github.com/Micharemu/TestAutomationProject" target="_blank" rel="noopener">
+                  View e-commerce & API tests on GitHub
+                </a>
+              </p>
+            </article>
+    
+            <!-- Project 2 -->
+            <article class="card">
+              <h3>REST API Testing Framework</h3>
+              <h4>Postman + Newman + GitHub Actions</h4>
+              <p>
+                A reusable API testing setup for validating REST endpoints with automated
+                CI execution.
+              </p>
+              <ul>
+                <li>Created a Postman collection with auth, CRUD, error handling, and edge cases.</li>
+                <li>Used JavaScript assertions to validate status codes, payloads, and schemas.</li>
+                <li>Integrated <strong>Newman</strong> tests into <strong>GitHub Actions</strong> for automated runs on each push.</li>
+                <li>Generated JSON/HTML reports for stakeholders to track API quality over time.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Postman</span>
+                <span class="tag">Newman</span>
+                <span class="tag">GitHub Actions</span>
+                <span class="tag">REST API</span>
+              </div>
+              <p style="margin-top:6px; font-size:12px;">
+                🔗 <a href="https://github.com/Micharemu/TestAutomationProject" target="_blank" rel="noopener">
+                  View API test framework on GitHub
+                </a>
+              </p>
+            </article>
+    
+            <!-- Project 3 -->
+            <article class="card">
+              <h3>Authentication & Role-Based Access Suite</h3>
+              <h4>Cypress Automation</h4>
+              <p>
+                Automation of login, password reset, and role-based access flows for a
+                web application.
+              </p>
+              <ul>
+                <li>Built Cypress tests for multiple user roles (admin, staff, standard user).</li>
+                <li>Used Page Object Model to keep tests maintainable and modular.</li>
+                <li>Integrated suite into GitHub Actions for regression checks on every commit.</li>
+                <li>Helped achieve ~<strong>40% reduction</strong> in manual regression time for auth flows.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Cypress</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">POM Pattern</span>
+                <span class="tag">CI/CD</span>
+              </div>
+              <p style="margin-top:6px; font-size:12px;">
+                🔗 <a href="https://github.com/Micharemu/Cypress_Mouse_Hover_Test_Cases" target="_blank" rel="noopener">
+                  View Cypress UI automation repo
+                </a>
+              </p>
+            </article>
+    
+            <!-- Project 4 / Academic -->
+            <article class="card">
+              <h3>Academic Web Apps – QA Lead</h3>
+              <h4>National Open University of Nigeria</h4>
+              <p>
+                Led QA activities across multiple academic group projects, mirroring
+                real-world Agile workflows.
+              </p>
+              <ul>
+                <li>Owned test planning, execution, and defect reporting for student-built applications.</li>
+                <li>Performed functional, regression, and basic performance checks.</li>
+                <li>Used SQL & DevTools to inspect network calls, storage, and backend data.</li>
+                <li>Presented test findings during project reviews and improved delivery quality.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag">Agile</span>
+                <span class="tag">SQL</span>
+                <span class="tag">Chrome DevTools</span>
+                <span class="tag">Team Collaboration</span>
+              </div>
+              <p style="margin-top:6px; font-size:12px;">
+                🔗 <a href="https://github.com/Micharemu" target="_blank" rel="noopener">
+                  See more work on my GitHub profile
+                </a>
+              </p>
+            </article>
+          </div>
+        </section>
+    
+
+    <!-- Experience -->
+    <section id="experience">
+      <div class="section-header">
+        <h2>Experience & Education</h2>
+        <span>Professional & academic background</span>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Professional Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>Freelance / Project-Based QA Tester</h3>
+              <span>InfoSTEx Concepts • Remote • Jul 2022 – Present</span>
+              <p style="font-size:12px; color:var(--muted);">
+                Manual and automated testing across multiple client projects, with a
+                strong focus on regression, API validation, and CI integration.
+              </p>
+              <ul>
+                <li>Executed 300+ test cases and enhanced coverage by ~35%.</li>
+                <li>Logged 200+ defects and improved turnaround by ~25%.</li>
+                <li>Reduced regression effort by ~40% through Cypress automation.</li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <h3>QA Lead – Academic Projects</h3>
+              <span>National Open University of Nigeria • 2023 – 2025</span>
+              <p style="font-size:12px; color:var(--muted);">
+                Led QA processes, documentation, and reviews for group development
+                projects aligned with industry QA standards.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Education & Certifications</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>BSc, Computer Science</h3>
+              <span>National Open University of Nigeria • 2021 – 2025</span>
+            </div>
+            <div class="timeline-item">
+              <h3>ND, Computer Science</h3>
+              <span>Yaba College of Technology • 2015 – 2017</span>
+            </div>
+            <div class="timeline-item">
+              <h3>Key Certifications</h3>
+              <span>2022 – 2025</span>
+              <ul>
+                <li>Cypress – Modern Automation Testing (Udemy)</li>
+                <li>Postman: REST API Testing (Udemy)</li>
+                <li>Automation Testing Basics (Simplilearn)</li>
+                <li>Agile & Scrum Methodologies</li>
+                <li>Software Testing & QA (Udemy)</li>
+                <li>Technical Support Fundamentals (Coursera)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Contact -->
+        <section id="contact">
+          <div class="section-header">
+            <h2>Contact & Links</h2>
+            <span>Let’s talk about your QA needs</span>
+          </div>
+          <div class="card">
+            <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">
+              I’m open to opportunities as a <strong>QA Tester / QA Engineer</strong> in
+              manual, automation, or hybrid roles – onsite, hybrid, or fully remote.
+            </p>
+            <ul style="list-style:none; font-size:13px; color:var(--muted); padding-left:0;">
+              <li><strong>📧 Email:</strong> <a href="mailto:micharemu@gmail.com">micharemu@gmail.com</a></li>
+              <li><strong>📞 Phone/WhatsApp:</strong> +234 806 118 7300</li>
+              <li>
+                <strong>🔗 LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/oladiran-tobi-michael" target="_blank" rel="noopener">
+                  linkedin.com/in/oladiran-tobi-michael
+                </a>
+              </li>
+              <li>
+                <strong>💻 GitHub:</strong>
+                <a href="https://github.com/Micharemu" target="_blank" rel="noopener">
+                  github.com/Micharemu
+                </a>
+              </li>
+            </ul>
+            <p style="font-size:12px; color:var(--muted); margin-top:8px;">
+              Feel free to reach out if you’d like to review test cases, see automation
+              scripts, or discuss how I approach QA on real projects.
+            </p>
+          </div>
+        </section>
+    
+
+    <!-- Footer -->
+    <footer>
+      <span>© <span id="year"></span> Oladiran Tobi Michael — QA Portfolio</span>
+      <span>Built with HTML & CSS • Ready for GitHub Pages / Netlify</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
